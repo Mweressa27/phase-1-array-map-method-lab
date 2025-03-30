@@ -12,17 +12,17 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  const exceptions = new Set(["OO", "NaN", "API", "JSONP"]);
+  const exceptions = new Set(["OO", "NaN", "API", "JSONP"])
 
-  const capitalizeSpecialTerms = (word) => {
+  const SpecialWords = (word) => {
         if (word === "stopPropagation") {
-      return "StopPropagation";
+      return "StopPropagation"
     }
     if (word === "preventDefault") {
-      return "PreventDefault";
+      return "PreventDefault"
     }
 
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
   };
 
   return tutorials.map(title => {
@@ -30,12 +30,10 @@ const titleCased = () => {
       .split(' ') 
       .map(word => {
         if (exceptions.has(word)) {
-          return word;
+          return word
         }
-        return capitalizeSpecialTerms(word);
+        return SpecialWords(word);
       })
       .join(' '); 
-  });
-};
-
-console.log(titleCased());
+  })
+}
